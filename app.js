@@ -60,7 +60,8 @@ app.use(
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://qualityfrontend.vercel.app"
+  "https://qualityfrontend.vercel.app",
+  "https://studly-seven.vercel.app/"
 ];
 
 app.use(cors({
