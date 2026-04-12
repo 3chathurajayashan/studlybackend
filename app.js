@@ -56,20 +56,18 @@ app.use(
 );
 
 // CORS FIX (IMPORTANT)
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-  })
-);
+ 
 
-app.options(
-  "*",
-  cors({
-    origin: "http://localhost:5173",
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: [
+    "http://localhost:5173"
+  ],
+  credentials: true,
+}));
+app.options(/.*/, cors({
+  origin: "http://localhost:5173",
+  credentials: true,
+}));
 
 // Body parsing
 app.use(express.json());
