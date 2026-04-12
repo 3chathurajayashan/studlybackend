@@ -58,14 +58,24 @@ app.use(
 // CORS FIX (IMPORTANT)
  
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://qualityfrontend.vercel.app"
+];
+
 app.use(cors({
-  origin: [
-    "http://localhost:5173"
-  ],
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true,
 }));
+
 app.options(/.*/, cors({
-  origin: "http://localhost:5173",
+  origin: allowedOrigins,
   credentials: true,
 }));
 
