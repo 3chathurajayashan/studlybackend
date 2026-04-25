@@ -25,9 +25,8 @@ import progressRoute from "./Routes/ProgressRoutes.js";
 const app = express();
 const PORT = process.env.PORT || 5050;
 
-//
-// ===================== DB CONNECTION (Vercel SAFE) =====================
-//
+ 
+ 
 let isConnected = false;
 
 const connectDatabase = async () => {
@@ -45,9 +44,7 @@ const connectDatabase = async () => {
 // Connect once on cold start
 connectDatabase();
 
-//
-// ===================== SECURITY / MIDDLEWARE =====================
-//
+ 
 
 app.use(
   helmet({
